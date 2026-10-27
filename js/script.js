@@ -60,8 +60,8 @@ async function getdata(path) {
   }
 }
 
-const coursEauData = await getdata('../donnees/cours_eau_dpt.json');
-const sites_hydro = await getdata('../donnees/sites_hydro.json');
+const coursEauData = await getdata('./donnees/cours_eau_dpt.json');
+const sites_hydro = await getdata('./donnees/sites_hydro.json');
 
 
 
