@@ -1,0 +1,38 @@
+@import "layouts.css";
+
+html, body {font-family: Arial;}
+
+#container{
+    width:98%;
+    margin:0 auto;
+}
+.temp_chart { height:400px; }
+.one_graph{ height: 150px; }
+.chart_title { padding: 4px 4px 0 0;}
+
+#legend_ce [data-layout="cluster"] { align-items: center;}
+#legend_stations [data-layout="cluster"] { align-items: center;}
+
+#legend_ce .carre { font-size: 1.4rem; }
+#legend_ce .txt, #legend_stations .txt { font-size: 0.8rem; }
+#legend_ce .txt small{ font-weight:bold; font-size: 0.8rem; }
+
+.titrelegende{
+    margin:0 0 0 0;
+}
+
+.destac{ 
+    text-decoration-thickness: 4px;
+    text-decoration-line: underline;
+    text-decoration-color: #e4087e; 
+    text-underline-offset: 4px;
+    font-weight:bold;
+}
+
+.detail_ce{ line-height:1.8rem;}
+
+.spacer {
+    height:4px;
+    background-color: #eeeeee;
+    margin: 0 0 10px 0;
+}
