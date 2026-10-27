@@ -183,7 +183,6 @@ function make_line_chart(container, data, title, plotBands) {
 
 
 function add_div(container_id, div_id, div_class) {
-    console.log(div_class);
     // 1. Sélectionner le conteneur cible
     const container = document.getElementById(container_id); // ou document.querySelector('.container')
 
