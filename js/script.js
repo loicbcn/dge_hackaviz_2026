@@ -109,6 +109,7 @@ for( let d in  coursEauData ) {
                 one_site_data.push({
                     x: sites_hydro[s]['pos'], 
                     y:1, 
+                    props:sites_hydro[s], 
                     dataLabels: { enabled: true, 
                                   format: '🌡️', 
                                   y: 16,
@@ -126,7 +127,8 @@ for( let d in  coursEauData ) {
 function make_line_chart(container, data, title, plotBands) {
     Highcharts.chart(container, {
         chart: {
-            type: 'spline'
+            type: 'spline',
+            backgroundColor: '#ffffff'
         },
         credits:{
             enabled:false,
@@ -167,9 +169,25 @@ function make_line_chart(container, data, title, plotBands) {
             showFirstLabel:false,
         },
         tooltip: {
-            enabled: false,
-            headerFormat: '<b>{series.name}</b><br>',
-            pointFormat: '{point.x} m'
+            //enabled: false,
+            //headerFormat: '<b>{series.name}</b><br>',
+            //pointFormat: '{point.x} m'
+            useHTML:true,
+            formatter: function() {
+                if ( this.props === undefined ) return false;
+                const props = this.props;
+                let tmpl = `<h4 style="margin-top:2px">${ce_alias[props.slug_ce]} à ${props.libelle_commune}</h4>`
+                tmpl += `Site: <strong>${props.site}</strong><br>`;
+                tmpl += `Abscisse: <strong>${Math.round((props.pos)/1000)} km<strong><br>`;
+                tmpl += `<table class="tbindic"><tr><th></th><th>min</th><th>max</th></tr>`;
+                tmpl += `<tr><th>Débits (m³/s)</th><td>${(props.mindebit/1000).toFixed(2)}</td><td>${(props.maxdebit/1000).toFixed(2)}</td></tr>`;
+                tmpl += `<tr><th>Températures (°C)</th><td>${props.mintemp}</td><td>${props.maxtemp}</td></tr>`;
+                tmpl += `<tr><th></th><th>moy</th><th>max</th></tr>`
+                tmpl += `<tr><th>Pluie (mm)</th><td>${props.avgpluie.toFixed(2)}</td><td>${props.maxpluie.toFixed(2)}</td></tr>`;
+                tmpl += `<tr><th>Neige (mm)</th><td>${props.avgneige.toFixed(2)}</td><td>${props.maxneige.toFixed(2)}</td></tr>`;
+                tmpl += `</table>`;
+                return tmpl;
+            }
         },
         series: [{
             lineWidth: 4,

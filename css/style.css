@@ -7,11 +7,13 @@ html, body {font-family: Arial;}
     margin:0 auto;
 }
 .temp_chart { height:400px; }
-.one_graph{ height: 150px; }
+.one_graph{ height: 250px; }
 .chart_title { padding: 4px 4px 0 0;}
 
 #legend_ce [data-layout="cluster"] { align-items: center;}
 #legend_stations [data-layout="cluster"] { align-items: center;}
+
+[data-layout="autogrid"] { align-items: center;}
 
 #legend_ce .carre { font-size: 1.4rem; }
 #legend_ce .txt, #legend_stations .txt { font-size: 0.8rem; }
@@ -27,6 +29,7 @@ html, body {font-family: Arial;}
     text-decoration-color: #e4087e; 
     text-underline-offset: 4px;
     font-weight:bold;
+    white-space: nowrap;
 }
 
 .detail_ce{ line-height:1.8rem;}
@@ -35,4 +38,21 @@ html, body {font-family: Arial;}
     height:4px;
     background-color: #eeeeee;
     margin: 0 0 10px 0;
+}
+
+.tbindic{
+    border-collapse:collapse;
+}
+
+.tbindic th, .tbindic td {
+    border:1px solid #ddd;
+    padding: 4px;
+}
+
+.tbindic td{ text-align:right;}
+
+.detail_ce img { 
+    height:125px; 
+    float:left;
+    margin: 0 4px 0 0;
 }
