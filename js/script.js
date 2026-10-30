@@ -140,7 +140,8 @@ function make_line_chart(container, data, title, plotBands) {
             className: 'chart_title',
             useHTML:true,
             style: {
-                fontSize:'1rem'
+                fontSize:'1rem',
+                color:'#000',
             }
         },
         legend: {
@@ -155,6 +156,9 @@ function make_line_chart(container, data, title, plotBands) {
                 text: undefined
             },
             labels: {
+                style: {
+                    color:'#000000'
+                },
                 formatter: function(){
                     return (this.value / 1000) + ' km';
                 }
